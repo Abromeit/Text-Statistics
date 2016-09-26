@@ -406,7 +406,7 @@ class TextStatistics
     {
         $strText = $this->setText($strText);
         $intDifficultWords = 0;
-        $arrWords = explode(' ', Text::lowerCase(preg_replace('`[^A-za-z\' ]`', '', $strText), $this->strEncoding));
+        $arrWords = explode(' ', Text::lowerCase(preg_replace('`[^\p{L}\' ]+`u', '', $strText), $this->strEncoding));
 
         // Fetch Dale-Chall Words
         $arrDaleChall = Resource::fetchDaleChallWordList();
@@ -433,7 +433,7 @@ class TextStatistics
     {
         $strText = $this->setText($strText);
         $intDifficultWords = 0;
-        $arrWords = explode(' ', strtolower(preg_replace('`[^A-za-z\' ]`', '', $strText)));
+        $arrWords = explode(' ', strtolower(preg_replace('`[^\p{L}\' ]+`u', '', $strText)));
         // Fetch Spache Words
         $wordsCounted = array();
 
