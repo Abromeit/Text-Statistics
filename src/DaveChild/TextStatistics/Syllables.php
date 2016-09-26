@@ -265,7 +265,7 @@ class Syllables
         $debug['Counting syllables for'] = $strWord;
 
         // Should be no non-alpha characters and lower case
-        $strWord = preg_replace('`[^A-Za-z]`', '', $strWord);
+        $strWord = preg_replace('`\P{L}+`u', '', $strWord);
         $strWord = Text::lowerCase($strWord, $strEncoding);
 
         // Check for problem words
