@@ -256,7 +256,7 @@ class Text
 
         $strText = self::cleanText($strText); // To clear out newlines etc
         $intTextLength = 0;
-        $strText = preg_replace('`[^A-Za-z]+`', '', $strText);
+        $strText = preg_replace('`\P{L}+`u', '', $strText);
         try {
 
             if (!self::$blnMbstring) {
